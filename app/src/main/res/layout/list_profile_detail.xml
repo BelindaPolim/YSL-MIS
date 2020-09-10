@@ -5,15 +5,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp"
-    android:paddingTop="10dp">
+    android:paddingRight="10dp">
 
     <TextView
         android:id="@+id/infoValue"
         android:gravity="start"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="8dp"
         android:text="Value informasi"
         android:textSize="16sp"
         android:textStyle="bold"

@@ -34,6 +34,10 @@ public class ProfileDetailAdapter extends ArrayAdapter<ProfileDetailModel> {
 
         infoVal.setText(profileDetail.getInfo());
 
+        if(profileDetail.getSeq() % 2 != 0){
+            infoVal.setPadding(0, 50, 0, 0);
+        }
+
         return convertView;
     }
 }
