@@ -198,8 +198,8 @@ public class ForgotEmailActivity extends AppCompatActivity {
 //                            teEmail.setText(response.getData().get(0).getEmail());
                             tvEmail.setText(response.getData().get(0).getEmail());
                         }else {
-                            Toast.makeText(c, "Mohon maaf NIK tidak terdaftar", Toast.LENGTH_SHORT).show();
-                            ForgotEmailActivity.super.onBackPressed();
+                            Toast.makeText(c, "Mohon maaf username tidak terdaftar", Toast.LENGTH_SHORT).show();
+                            onBackPressed();
                         }
                     }
 
@@ -210,7 +210,7 @@ public class ForgotEmailActivity extends AppCompatActivity {
                         Log.d("cekUrl", "onError errorCode : " + error.getErrorCode());
                         Log.d("cekUrl", "onError errorBody : " + error.getErrorBody());
                         Log.d("cekUrl", "onError errorDetail : " + error.getErrorDetail());
-                        ForgotEmailActivity.super.onBackPressed();
+                        onBackPressed();
                     }
                 });
 

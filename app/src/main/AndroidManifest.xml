@@ -35,7 +35,9 @@
             android:name="id.com.ervsoftware.ysl.ChartPembelian"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="landscape" />
-        <activity android:name="id.com.ervsoftware.ysl.ForgotEmailActivity" />
+        <activity
+            android:name="id.com.ervsoftware.ysl.ForgotEmailActivity"
+            android:parentActivityName=".LoginActivity"/>
         <activity
             android:name="id.com.ervsoftware.ysl.HutangActivity"
             android:label="Hutang"
@@ -54,7 +56,6 @@
             android:parentActivityName="id.com.ervsoftware.ysl.MainMenuActivity" />
         <activity
             android:name="id.com.ervsoftware.ysl.LoginActivity"
-            android:noHistory="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

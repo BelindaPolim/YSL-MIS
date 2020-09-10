@@ -172,7 +172,7 @@ public class LoginActivity extends AppCompatActivity {
             Prefs.putString(SP_USER,nik);
             startActivity(new Intent(this, ForgotEmailActivity.class));
         }else {
-            Toast.makeText(this, "Silahkan masukan username / nik", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Silahkan masukan username", Toast.LENGTH_SHORT).show();
         }
 
     }
