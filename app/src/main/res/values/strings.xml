@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">YSL-MIS</string>
+    <string name="AppName">NamaAplikasi</string>
+    <string name="pwdHint">Password</string>
+    <string name="usrHint">Username</string>
+    <string name="loginBtn">Login</string>
+    <string name="logoutMsg">Log Out</string>
+    <string name="emailHint">Email</string>
+    <string name="usernameHint">Username</string>
+    <string name="username_required">Username is required</string>
+    <string name="password_required">Password is required</string>
+    <string name="processing">Processing</string>
+    <string name="please_wait">Please wait</string>
+    <string name="penjualanMenu">Penjualan</string>
+    <string name="pembelianMenu">Pembelian</string>
+    <string name="piutangMenu">Piutang</string>
+    <string name="hutangMenu">Hutang</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="tab_text_1">Customer</string>
+    <string name="tab_text_2">Supplier</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_menu_utama">MenuUtamaActivity</string>
+</resources>
