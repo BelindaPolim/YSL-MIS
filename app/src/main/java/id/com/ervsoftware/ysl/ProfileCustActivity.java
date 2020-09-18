@@ -141,7 +141,7 @@ public class ProfileCustActivity extends AppCompatActivity {
         protected Void doInBackground(String... strings) {
             HttpHandler sh = new HttpHandler();
 
-            String url = Setting.API_Piutang_Dagang + "&LoginUserId=" + Setting.SP_USER;
+            String url = Setting.API_Piutang_Dagang + "?LoginUserId=" + Setting.SP_USER;
             String jsonStr = sh.makeServiceCall(url);
 
             if(jsonStr == null) Log.e(TAG, "JSON null");

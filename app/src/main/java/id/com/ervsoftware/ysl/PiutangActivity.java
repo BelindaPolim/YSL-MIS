@@ -143,7 +143,7 @@ public class PiutangActivity extends AppCompatActivity {
 
             // Making a request to url and getting response
 //            String url = "http://119.235.208.235:8092/piutang_dagang_per_customer";
-            String url = Setting.API_Piutang_Dagang + "&LoginUserId=" + Setting.SP_USER;
+            String url = Setting.API_Piutang_Dagang + "?LoginUserId=" + Setting.SP_USER;
             String jsonStr = sh.makeServiceCall(url);
 
 //            DecimalFormat pemisahRibuan = (DecimalFormat) DecimalFormat.getCurrencyInstance();
