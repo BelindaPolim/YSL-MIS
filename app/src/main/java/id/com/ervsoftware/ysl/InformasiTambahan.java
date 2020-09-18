@@ -51,7 +51,7 @@ public class InformasiTambahan extends AppCompatActivity {
         String param = getPosition.getStringExtra("param");
         String code = getPosition.getStringExtra("code");
 
-        apiUrl = url + param + code;
+        apiUrl = url + param + code + "&LoginUserId=" + Setting.SP_USER;
         Log.d(TAG, "onCreate - apiUrl : " + apiUrl);
         new GetInfo().execute();
     }

@@ -130,7 +130,7 @@ public class HutangActivity extends AppCompatActivity {
         protected Void doInBackground(String... strings) {
             HttpHandler sh = new HttpHandler();
 
-            String url = Setting.API_Hutang_Dagang;
+            String url = Setting.API_Hutang_Dagang + "&LoginUserId=" + Setting.SP_USER;
             String jsonStr = sh.makeServiceCall(url);
 
 

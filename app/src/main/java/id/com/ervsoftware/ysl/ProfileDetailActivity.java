@@ -42,7 +42,7 @@ public class ProfileDetailActivity extends AppCompatActivity {
         String code = getPosition.getStringExtra("code");
         String name = getPosition.getStringExtra("name");
 
-        apiUrl = url + param + code;
+        apiUrl = url + param + code + "&LoginUserId=" + Setting.SP_USER;
         Log.d(TAG, "onCreate - apiUrl : " + apiUrl);
 
         tvNama = findViewById(R.id.valNama);

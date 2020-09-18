@@ -248,7 +248,7 @@ public class ChartPenjualan extends AppCompatActivity {
         protected Void doInBackground(String... strings) {
             HttpHandler sh = new HttpHandler();
 
-            String url = Setting.API_Penjualan_Dagang + "?FromTahunBulan=" + Setting.FROM_DATE + "&ToTahunBulan=" + Setting.TO_DATE + "&PerBulan=" + Setting.PER_BULAN;
+            String url = Setting.API_Penjualan_Dagang + "?FromTahunBulan=" + Setting.FROM_DATE + "&ToTahunBulan=" + Setting.TO_DATE + "&PerBulan=" + Setting.PER_BULAN + "&LoginUserId=" + Setting.SP_USER;
             String jsonStr = sh.makeServiceCall(url);
 
             if(jsonStr == null) Log.e(TAG, "JSON null");
