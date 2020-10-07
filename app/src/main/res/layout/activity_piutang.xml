@@ -120,7 +120,6 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:paddingEnd="5dp"
-
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/jumlahCust"
                 app:layout_constraintBottom_toBottomOf="@id/titleTotal"/>

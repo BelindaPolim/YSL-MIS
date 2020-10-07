@@ -33,8 +33,9 @@ public class PenjualanActivity extends AppCompatActivity {
     private ListView lv;
     EditText etSearch;
     ImageView imgBack, imgRefresh, imgSearch, imgDate;
-    TextView tvTotal;
+    TextView tvTotal, tvJml;
     long total = 0;
+    int jml = 0;
 
     ArrayList<PenjualanModel> penjualan = new ArrayList<>();
 
@@ -84,6 +85,7 @@ public class PenjualanActivity extends AppCompatActivity {
                     String cari = etSearch.getText().toString().trim();
                     new GetContacts().execute(cari);
                     total = 0;
+                    jml = 0;
                     return true;
                 }
                 return false;
@@ -98,6 +100,7 @@ public class PenjualanActivity extends AppCompatActivity {
                 String cari = etSearch.getText().toString().trim();
                 new GetContacts().execute(cari);
                 total = 0;
+                jml = 0;
             }
         });
 
@@ -144,6 +147,7 @@ public class PenjualanActivity extends AppCompatActivity {
         });
 
         tvTotal = findViewById(R.id.totalPenjualan);
+        tvJml = findViewById(R.id.jumlahCust);
 
 //        if (Setting.DATE_CHANGED == 1){
 //            refreshData();
@@ -229,10 +233,12 @@ public class PenjualanActivity extends AppCompatActivity {
                         if(search.isEmpty()){
                             penjualan.add(new PenjualanModel(id, name, Setting.pemisahRibuan(nilaiPenjualan).substring(0, nilai.length()-3)));
                             total += nilaiPenjualan;
+                            jml += 1;
                         }
                         else if(name.contains(search.toUpperCase())) {
                             penjualan.add(new PenjualanModel(id, name, Setting.pemisahRibuan(nilaiPenjualan).substring(0, nilai.length()-3)));
                             total += nilaiPenjualan;
+                            jml += 1;
                         }
                     }
 
@@ -276,6 +282,7 @@ public class PenjualanActivity extends AppCompatActivity {
 
             lv.setAdapter(new PenjualanAdapter(PenjualanActivity.this, R.layout.list_penjualan, penjualan));
             tvTotal.setText(Setting.pemisahRibuan(total).substring(0, Setting.pemisahRibuan(total).length()-3));
+            tvJml.setText(String.valueOf(jml));
         }
     }
 }
