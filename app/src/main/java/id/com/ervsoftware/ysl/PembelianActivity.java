@@ -32,8 +32,9 @@ public class PembelianActivity extends AppCompatActivity {
     private ListView lv;
     EditText etSearch;
     ImageView imgBack, imgRefresh, imgSearch, imgDate;
-    TextView tvTotal;
+    TextView tvTotal, tvJml;
     long total = 0;
+    int jml = 0;
 
     ArrayList<PembelianModel> pembelian = new ArrayList<>();
 
@@ -83,6 +84,7 @@ public class PembelianActivity extends AppCompatActivity {
                     String cari = etSearch.getText().toString().trim();
                     new GetContacts().execute(cari);
                     total = 0;
+                    jml = 0;
                     return true;
                 }
                 return false;
@@ -97,6 +99,7 @@ public class PembelianActivity extends AppCompatActivity {
                 String cari = etSearch.getText().toString().trim();
                 new GetContacts().execute(cari);
                 total = 0;
+                jml = 0;
             }
         });
 
@@ -142,6 +145,7 @@ public class PembelianActivity extends AppCompatActivity {
         });
 
         tvTotal = findViewById(R.id.totalPembelian);
+        tvJml = findViewById(R.id.jumlahSupp);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -229,10 +233,12 @@ public class PembelianActivity extends AppCompatActivity {
                         if(search.isEmpty()){
                             pembelian.add(new PembelianModel(id, name, Setting.pemisahRibuan(nilaiPembelian).substring(0, nilai.length()-3)));
                             total += nilaiPembelian;
+                            jml += 1;
                         }
                         else if(name.contains(search.toUpperCase())) {
                             pembelian.add(new PembelianModel(id, name, Setting.pemisahRibuan(nilaiPembelian).substring(0, nilai.length()-3)));
                             total += nilaiPembelian;
+                            jml += 1;
                         }
                     }
 
@@ -276,6 +282,7 @@ public class PembelianActivity extends AppCompatActivity {
 
             lv.setAdapter(new PembelianAdapter(PembelianActivity.this, R.layout.list_pembelian, pembelian));
             tvTotal.setText(Setting.pemisahRibuan(total).substring(0, Setting.pemisahRibuan(total).length()-3));
+            tvJml.setText(String.valueOf(jml));
         }
     }
 }
