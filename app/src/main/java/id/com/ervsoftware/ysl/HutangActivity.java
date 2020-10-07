@@ -30,8 +30,9 @@ public class HutangActivity extends AppCompatActivity {
     private ListView lv;
     EditText etSearch;
     ImageView imgBack, imgRefresh, imgSearch;
-    TextView tvTotal;
+    TextView tvTotal, tvJml;
     long total = 0;
+    int jml = 0;
 
     ArrayList<HutangModel> hutang = new ArrayList<>();
 
@@ -72,6 +73,7 @@ public class HutangActivity extends AppCompatActivity {
                     String cari = etSearch.getText().toString().trim();
                     new GetContacts().execute(cari);
                     total = 0;
+                    jml = 0;
                     return true;
                 }
                 return false;
@@ -86,10 +88,12 @@ public class HutangActivity extends AppCompatActivity {
                 String cari = etSearch.getText().toString().trim();
                 new GetContacts().execute(cari);
                 total = 0;
+                jml = 0;
             }
         });
 
         tvTotal = findViewById(R.id.totalHutang);
+        tvJml = findViewById(R.id.jumlahSupp);
     }
 
     private void refreshData() {
@@ -158,10 +162,12 @@ public class HutangActivity extends AppCompatActivity {
                         if(search.isEmpty()){
                             hutang.add(new HutangModel(id, name, Setting.pemisahRibuan(sisaHutang).substring(0, sisa.length()-3)));
                             total += sisaHutang;
+                            jml += 1;
                         }
                         else if(name.contains(search.toUpperCase())) {
                             hutang.add(new HutangModel(id, name, Setting.pemisahRibuan(sisaHutang).substring(0, sisa.length()-3)));
                             total += sisaHutang;
+                            jml += 1;
                         }
                     }
 
@@ -205,6 +211,7 @@ public class HutangActivity extends AppCompatActivity {
 
             lv.setAdapter(new HutangAdapter(HutangActivity.this, R.layout.list_hutang, hutang));
             tvTotal.setText(Setting.pemisahRibuan(total).substring(0, Setting.pemisahRibuan(total).length()-3));
+            tvJml.setText(String.valueOf(jml));
         }
     }
 }

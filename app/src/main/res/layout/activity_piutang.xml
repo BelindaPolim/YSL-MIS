@@ -205,21 +205,3 @@
         app:layout_constraintBottom_toBottomOf="parent"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
-<!--<EditText-->
-<!--android:id="@+id/inputSearch"-->
-<!--android:layout_width="match_parent"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:hint="Customer"-->
-<!--android:inputType="textVisiblePassword"-->
-<!--android:layout_margin="16dp"/>-->
-
-<!--<Button-->
-<!--android:id="@+id/btnSearch"-->
-<!--android:layout_width="wrap_content"-->
-<!--android:layout_height="wrap_content"-->
-<!--android:text="Search"-->
-<!--android:layout_alignParentEnd="true"-->
-<!--android:layout_marginEnd="20dp"/>-->
-
-
-

@@ -1,6 +1,7 @@
 package id.com.ervsoftware.ysl;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,10 @@ public class HutangAdapter extends ArrayAdapter {
             viewHolder.nama = (TextView) row.findViewById(R.id.suppName);
             viewHolder.hutang = (TextView) row.findViewById(R.id.sisaHutang);
             row.setTag(viewHolder);
+
+            if(position % 2 == 1) {
+                row.setBackgroundColor(Color.LTGRAY);
+            }
         } else {
             viewHolder = (HutangAdapter.ViewHolder) row.getTag();
         }
