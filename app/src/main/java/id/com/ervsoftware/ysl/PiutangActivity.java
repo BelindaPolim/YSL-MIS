@@ -30,8 +30,9 @@ public class PiutangActivity extends AppCompatActivity {
     private ListView lv;
     EditText etSearch;
     ImageView imgBack, imgRefresh, imgSearch;
-    TextView tvTotal;
+    TextView tvTotal, tvJml;
     long total = 0;
+    int jml = 0;
 //    String search;
 
     //    PiutangAdapter dataAdapter = null;
@@ -80,6 +81,7 @@ public class PiutangActivity extends AppCompatActivity {
                     String cari = etSearch.getText().toString().trim();
                     new GetContacts().execute(cari);
                     total = 0;
+                    jml = 0;
                     return true;
                 }
                 return false;
@@ -97,10 +99,12 @@ public class PiutangActivity extends AppCompatActivity {
                 String cari = etSearch.getText().toString().trim();
                 new GetContacts().execute(cari);
                 total = 0;
+                jml = 0;
             }
         });
 
         tvTotal = findViewById(R.id.totalPiutang);
+        tvJml = findViewById(R.id.jumlahCust);
     }
 
     private void refreshData() {
@@ -179,10 +183,12 @@ public class PiutangActivity extends AppCompatActivity {
                         if(search.isEmpty()){
                             piutang.add(new PiutangModel(id, name, Setting.pemisahRibuan(sisaPiutang).substring(0, sisa.length()-3)));
                             total += sisaPiutang;
+                            jml += 1;
                         }
                         else if(name.contains(search.toUpperCase())) {
                             piutang.add(new PiutangModel(id, name, Setting.pemisahRibuan(sisaPiutang).substring(0, sisa.length()-3)));
                             total += sisaPiutang;
+                            jml += 1;
                         }
                         else {
 //                            piutang.add(new PiutangModel(id, name, sisaPiutang));
@@ -231,6 +237,7 @@ public class PiutangActivity extends AppCompatActivity {
 
             lv.setAdapter(new PiutangAdapter(PiutangActivity.this, R.layout.list_piutang, piutang));
             tvTotal.setText(Setting.pemisahRibuan(total).substring(0, Setting.pemisahRibuan(total).length()-3));
+            tvJml.setText(String.valueOf(jml));
         }
     }
 }

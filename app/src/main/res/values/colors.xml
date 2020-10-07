@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#1736A5</color>
-    <color name="colorPrimaryDark">#291797</color>
-    <color name="colorAccent">#136E03</color>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#277E2A</color>
+    <color name="colorAccent">#89A69A</color>
     <color name="colorLayerDark">#D6000000</color>
     <color name="colorLayerSemiDark">#60000000</color>
     <color name="colorTextPrimary">#212121</color>
@@ -12,7 +12,7 @@
     <color name="colorBackground">#EBEBEB</color>
     <color name="colorDivider">#D6D6D6</color>
 
-    <color name="color_option_menu">#6D8F6F</color>
+    <color name="color_option_menu">#01A181</color>
     <color name="black">#000000</color>
     <color name="itemuda">#2E2E2E</color>
     <color name="putihtua">#AEAEAE</color>
