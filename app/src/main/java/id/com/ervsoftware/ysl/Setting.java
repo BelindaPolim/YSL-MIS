@@ -28,6 +28,8 @@ public class Setting {
     public static final String API_Profile_Supplier_Details = API + "profile_supplier_detail";
     public static final String API_Profile_Customer = API + "profile_customer";
     public static final String API_Profile_Customer_Details = API + "profile_customer_detail";
+    public static final String API_Jatuh_Tempo_Piutang = API + "piutang_dagang_per_invoice?";
+    public static final String API_Jatuh_Tempo_Hutang = API + "hutang_dagang_per_invoice?";
 
 
     //shared preference

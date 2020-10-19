@@ -82,31 +82,31 @@
                         android:textStyle="bold"/>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/layoutJatuhTempoPiutang"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_gravity="center"
-                        android:layout_margin="8dp"
-                        android:contentDescription="@string/app_name"
-                        android:padding="8dp"
-                        android:src="@drawable/jatuhtempo"
-                        android:background="@drawable/icon_circle_background"/>
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/layoutJatuhTempoPiutang"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:orientation="vertical">-->
+<!--                    <ImageView-->
+<!--                        android:layout_width="60dp"-->
+<!--                        android:layout_height="60dp"-->
+<!--                        android:layout_gravity="center"-->
+<!--                        android:layout_margin="8dp"-->
+<!--                        android:contentDescription="@string/app_name"-->
+<!--                        android:padding="8dp"-->
+<!--                        android:src="@drawable/jatuhtempo"-->
+<!--                        android:background="@drawable/icon_circle_background"/>-->
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Jatuh tempo"
-                        android:textColor="@color/colorTextHint"
-                        android:textSize="14sp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
+<!--                    <TextView-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:text="Jatuh tempo"-->
+<!--                        android:textColor="@color/colorTextHint"-->
+<!--                        android:textSize="14sp"-->
+<!--                        android:textStyle="bold"/>-->
+<!--                </LinearLayout>-->
 
                 <LinearLayout
                     android:id="@+id/layoutProfileCustomer"

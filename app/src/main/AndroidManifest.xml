@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
-        android:name="id.com.ervsoftware.ysl.MyApp"
+        android:name=".MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -14,48 +14,49 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".JatuhTempoActivity"></activity>
         <activity
-            android:name="id.com.ervsoftware.ysl.ProfileDetailActivity"
-            android:theme="@style/CustomDialog"/>
-        <activity android:name="id.com.ervsoftware.ysl.ProfileCustActivity" />
-        <activity android:name="id.com.ervsoftware.ysl.ProfileSuppActivity" />
+            android:name=".ProfileDetailActivity"
+            android:theme="@style/CustomDialog" />
+        <activity android:name=".ProfileCustActivity" />
+        <activity android:name=".ProfileSuppActivity" />
         <activity
-            android:name="id.com.ervsoftware.ysl.MainMenuActivity"
+            android:name=".MainMenuActivity"
             android:label="@string/title_activity_main_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="id.com.ervsoftware.ysl.DatePickerActivity"
+            android:name=".DatePickerActivity"
             android:theme="@style/CustomDialog" />
-        <activity android:name="id.com.ervsoftware.ysl.InformasiTambahan" />
+        <activity android:name=".InformasiTambahan" />
         <activity
-            android:name="id.com.ervsoftware.ysl.ChartPenjualan"
+            android:name=".ChartPenjualan"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="landscape" />
         <activity
-            android:name="id.com.ervsoftware.ysl.ChartPembelian"
+            android:name=".ChartPembelian"
             android:configChanges="orientation|keyboardHidden"
             android:screenOrientation="landscape" />
         <activity
-            android:name="id.com.ervsoftware.ysl.ForgotEmailActivity"
-            android:parentActivityName=".LoginActivity"/>
+            android:name=".ForgotEmailActivity"
+            android:parentActivityName=".LoginActivity" />
         <activity
-            android:name="id.com.ervsoftware.ysl.HutangActivity"
+            android:name=".HutangActivity"
             android:label="Hutang"
-            android:parentActivityName="id.com.ervsoftware.ysl.MainMenuActivity" />
+            android:parentActivityName=".MainMenuActivity" />
         <activity
-            android:name="id.com.ervsoftware.ysl.PiutangActivity"
+            android:name=".PiutangActivity"
             android:label="Piutang"
-            android:parentActivityName="id.com.ervsoftware.ysl.MainMenuActivity" />
+            android:parentActivityName=".MainMenuActivity" />
         <activity
-            android:name="id.com.ervsoftware.ysl.PembelianActivity"
+            android:name=".PembelianActivity"
             android:label="Pembelian"
-            android:parentActivityName="id.com.ervsoftware.ysl.MainMenuActivity" />
+            android:parentActivityName=".MainMenuActivity" />
         <activity
-            android:name="id.com.ervsoftware.ysl.PenjualanActivity"
+            android:name=".PenjualanActivity"
             android:label="Penjualan"
-            android:parentActivityName="id.com.ervsoftware.ysl.MainMenuActivity" />
+            android:parentActivityName=".MainMenuActivity" />
         <activity
-            android:name="id.com.ervsoftware.ysl.LoginActivity"
+            android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

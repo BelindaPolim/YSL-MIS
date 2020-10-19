@@ -2,7 +2,9 @@ package id.com.ervsoftware.ysl;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -89,6 +92,30 @@ public class HutangActivity extends AppCompatActivity {
                 new GetContacts().execute(cari);
                 total = 0;
                 jml = 0;
+            }
+        });
+
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                final String[] choices = {"Jatuh tempo hutang"};
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(HutangActivity.this);
+                builder.setItems(choices, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0){
+                            Intent jatuhTempo = new Intent(HutangActivity.this, JatuhTempoActivity.class);
+                            String code = hutang.get(position).getID();
+                            jatuhTempo.putExtra("url", Setting.API_Jatuh_Tempo_Piutang);
+                            jatuhTempo.putExtra("param", "SuppCode=");
+                            jatuhTempo.putExtra("code", code);
+                            startActivity(jatuhTempo);
+                        }
+                    }
+                });
+                builder.show();
+                return true;
             }
         });
 
