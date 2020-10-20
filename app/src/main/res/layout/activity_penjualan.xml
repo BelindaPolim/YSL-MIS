@@ -45,13 +45,13 @@
             android:id="@+id/imgDate"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginEnd="5dp"
             android:contentDescription="@string/app_name"
             android:src="@drawable/ic_baseline_date_range"
             app:layout_constraintBottom_toBottomOf="@id/textTitle"
             app:layout_constraintEnd_toStartOf="@id/imgRefresh"
             app:layout_constraintTop_toTopOf="@id/textTitle"
-            app:tint="@color/colorPrimaryLight" />
+            app:tint="@color/colorPrimaryLight"
+            android:padding="2dp"/>
 
         <ImageView
             android:id="@+id/imgRefresh"

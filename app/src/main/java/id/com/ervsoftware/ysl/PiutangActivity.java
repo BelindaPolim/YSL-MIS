@@ -2,7 +2,9 @@ package id.com.ervsoftware.ysl;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -33,22 +36,14 @@ public class PiutangActivity extends AppCompatActivity {
     TextView tvTotal, tvJml;
     long total = 0;
     int jml = 0;
-//    String search;
 
-    //    PiutangAdapter dataAdapter = null;
-//    private ArrayList<HashMap<String, String>> contactlist;
     ArrayList<PiutangModel> piutang = new ArrayList<>();
-//    ArrayList<PiutangModel> filtered = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_piutang);
 
-//        Intent i = getIntent();
-//        final String search = i.getStringExtra("search");
-//        Toast.makeText(this, search.toUpperCase(), Toast.LENGTH_SHORT).show();
-//        contactlist = new ArrayList<>();
         lv = findViewById(R.id.listView);
         lv.setTextFilterEnabled(true);
         etSearch = findViewById(R.id.inputSearch);
@@ -100,6 +95,30 @@ public class PiutangActivity extends AppCompatActivity {
                 new GetContacts().execute(cari);
                 total = 0;
                 jml = 0;
+            }
+        });
+
+        lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+                final String[] choices = {"Jatuh tempo piutang"};
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(PiutangActivity.this);
+                builder.setItems(choices, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (which == 0){
+                            Intent jatuhTempo = new Intent(PiutangActivity.this, JatuhTempoActivity.class);
+                            String code = piutang.get(position).getID();
+                            jatuhTempo.putExtra("url", Setting.API_Jatuh_Tempo_Piutang);
+                            jatuhTempo.putExtra("param", "CustCode=");
+                            jatuhTempo.putExtra("code", code);
+                            startActivity(jatuhTempo);
+                        }
+                    }
+                });
+                builder.show();
+                return true;
             }
         });
 

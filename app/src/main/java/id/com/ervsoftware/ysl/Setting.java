@@ -47,6 +47,8 @@ public class Setting {
     public static String FROM_DATE = thisYear + "01";
     public static String TO_DATE = thisYear + thisMonth;
     public static int PER_BULAN;
+    public static int SET_HARI = 30;
+    public static int STATE_JATUH_TEMPO;
 
     //Display date
     public static String DISPLAY_FROM_DATE = "01/" + thisYear;
