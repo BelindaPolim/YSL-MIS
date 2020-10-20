@@ -32,12 +32,13 @@ public class SetTimeActivity extends AppCompatActivity {
         chkJatuhTempo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                chkJatuhTempo.setActivated(!chkJatuhTempo.isActivated());
                 if (chkJatuhTempo.isChecked()){
                     Setting.STATE_JATUH_TEMPO = 1;
+                    chkJatuhTempo.setActivated(true);
                 }
                 else {
                     Setting.STATE_JATUH_TEMPO = 0;
+                    chkJatuhTempo.setActivated(!chkJatuhTempo.isActivated());
                 }
             }
         });

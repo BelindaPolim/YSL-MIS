@@ -108,7 +108,7 @@ public class HutangActivity extends AppCompatActivity {
                             Intent jatuhTempo = new Intent(HutangActivity.this, JatuhTempoActivity.class);
                             String code = hutang.get(position).getID();
                             jatuhTempo.putExtra("url", Setting.API_Jatuh_Tempo_Piutang);
-                            jatuhTempo.putExtra("param", "SuppCode=");
+                            jatuhTempo.putExtra("param", "&SuppCode=");
                             jatuhTempo.putExtra("code", code);
                             startActivity(jatuhTempo);
                         }

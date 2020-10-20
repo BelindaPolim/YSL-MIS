@@ -36,32 +36,171 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toStartOf="@id/imgRefresh"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toEndOf="@id/imgBack"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/imgTime"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_baseline_access_time"
-            app:layout_constraintBottom_toBottomOf="@id/textTitle"
-            app:layout_constraintEnd_toStartOf="@id/imgRefresh"
-            app:layout_constraintTop_toTopOf="@id/textTitle"
-            app:tint="@color/colorPrimaryLight"
-            android:padding="2dp"/>
-        <ImageView
-            android:id="@+id/imgRefresh"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:contentDescription="@string/app_name"
-            android:src="@drawable/ic_refresh"
-            app:layout_constraintBottom_toBottomOf="@id/textTitle"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/textTitle"
-            app:tint="@color/colorPrimaryLight" />
+<!--        <ImageView-->
+<!--            android:id="@+id/imgTime"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:contentDescription="@string/app_name"-->
+<!--            android:src="@drawable/ic_baseline_access_time"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/textTitle"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/imgRefresh"-->
+<!--            app:layout_constraintTop_toTopOf="@id/textTitle"-->
+<!--            app:tint="@color/colorPrimaryLight"-->
+<!--            android:padding="2dp"/>-->
+<!--        <ImageView-->
+<!--            android:id="@+id/imgRefresh"-->
+<!--            android:layout_width="30dp"-->
+<!--            android:layout_height="30dp"-->
+<!--            android:contentDescription="@string/app_name"-->
+<!--            android:src="@drawable/ic_refresh"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/textTitle"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="@id/textTitle"-->
+<!--            app:tint="@color/colorPrimaryLight" />-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/white_rectangle_background"
+            app:layout_constraintTop_toBottomOf="@id/textTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:padding="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:elevation="8dp">
+
+<!--            <TextView-->
+<!--                android:id="@+id/textAwal"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/hind_vadodara"-->
+<!--                android:paddingTop="5dp"-->
+<!--                android:paddingBottom="5dp"-->
+<!--                android:paddingStart="5dp"-->
+<!--                android:text="Jatuh tempo dalam "-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toStartOf="@id/setHari"-->
+<!--                app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/setHari"-->
+<!--                android:layout_width="70dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/hind_vadodara"-->
+<!--                android:paddingTop="5dp"-->
+<!--                android:paddingBottom="5dp"-->
+<!--                android:paddingEnd="5dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:background="@drawable/secondary_button_background"-->
+<!--                android:hint="30"-->
+<!--                android:textAlignment="textEnd"-->
+<!--                android:inputType="number"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintStart_toEndOf="@id/textAwal"-->
+<!--                app:layout_constraintEnd_toStartOf="@id/textAkhir"/>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/textAkhir"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/didact_gothic"-->
+<!--                android:paddingTop="5dp"-->
+<!--                android:paddingBottom="5dp"-->
+<!--                android:paddingEnd="5dp"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:text="hari"-->
+<!--                app:layout_constraintStart_toEndOf="@id/setHari"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="@id/textAkhir"/>-->
+
+<!--            <CheckBox-->
+<!--                android:id="@+id/chkJatuhTempo"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/hind_vadodara"-->
+<!--                android:text="Belum jatuh tempo"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18sp"-->
+<!--                android:textStyle="bold"-->
+<!--                android:paddingStart="5dp"-->
+<!--                app:layout_constraintStart_toStartOf="@id/textAwal"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/textAwal" />-->
+
+            <LinearLayout
+                android:id="@+id/layoutJatuhTempo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:text="Jumlah hari"
+                    android:textColor="@color/itemuda"/>
+
+                <EditText
+                    android:id="@+id/setHari"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="end|center"
+                    android:textAlignment="textEnd"
+                    android:layout_marginRight="10dp"
+                    android:paddingEnd="10dp"
+                    android:hint="30"
+                    android:inputType="number"
+                    android:background="@drawable/secondary_button_background"/>
+
+                <CheckBox
+                    android:id="@+id/chkJatuhTempo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+                    android:layout_gravity="end|center"
+                    android:layout_marginLeft="10dp"
+                    android:paddingEnd="10dp"
+                    android:textSize="18sp"
+                    android:text="Belum jatuh tempo"
+                    android:textColor="@color/itemuda"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/layoutJatuhTempo">
+
+                <Button
+                    android:id="@+id/btnUpdate"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/primary_button_background"
+                    android:textColor="@color/white"
+                    android:textAppearance="?android:textAppearanceLarge"
+                    android:text="Update"
+                    android:textSize="18sp"
+                    android:layout_gravity="center"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -108,11 +247,11 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/nomor"
+            android:id="@+id/judul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/yantramanav"
-            android:text="No."
+            android:text="Nama : "
             android:textColor="@color/itemuda"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -122,50 +261,87 @@
             app:layout_constraintStart_toStartOf="parent"/>
 
         <TextView
-            android:id="@+id/tanggal"
+            android:id="@+id/nama"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/yantramanav"
-            android:text="Tanggal Fkt"
             android:textColor="@color/itemuda"
             android:textSize="18sp"
             android:textStyle="bold"
             android:padding="5dp"
             app:layout_constraintTop_toBottomOf="@id/searchBar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/nomor"
-            app:layout_constraintEnd_toStartOf="@id/jatuhTempo"/>
+            app:layout_constraintStart_toEndOf="@id/judul"/>
 
-        <TextView
-            android:id="@+id/jatuhTempo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/yantramanav"
-            android:text="Jatuh Tempo"
-            android:textColor="@color/itemuda"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:padding="5dp"
-            app:layout_constraintTop_toBottomOf="@id/searchBar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tanggal"
-            app:layout_constraintEnd_toStartOf="@id/nilai"/>
 
-        <TextView
-            android:id="@+id/nilai"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/yantramanav"
-            android:text="Nilai Piutang"
-            android:textColor="@color/itemuda"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:padding="5dp"
-            app:layout_constraintTop_toBottomOf="@id/searchBar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@id/jatuhTempo"
-            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!--        <TextView-->
+<!--            android:id="@+id/nomor"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/yantramanav"-->
+<!--            android:text="No."-->
+<!--            android:textColor="@color/itemuda"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:padding="5dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/searchBar"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tanggal"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/yantramanav"-->
+<!--            android:text="Tanggal Fkt"-->
+<!--            android:textColor="@color/itemuda"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:padding="5dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/searchBar"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@id/nomor"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/jatuhTempo"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/jatuhTempo"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/yantramanav"-->
+<!--            android:text="Jatuh Tempo"-->
+<!--            android:textColor="@color/itemuda"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:padding="5dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/searchBar"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@id/tanggal"-->
+<!--            app:layout_constraintEnd_toStartOf="@id/nilai"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/nilai"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/yantramanav"-->
+<!--            android:text="Nilai Piutang"-->
+<!--            android:textColor="@color/itemuda"-->
+<!--            android:textSize="18sp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:padding="5dp"-->
+<!--            app:layout_constraintTop_toBottomOf="@id/searchBar"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toEndOf="@id/jatuhTempo"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"/>-->
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:scrollbars="vertical"
+        android:fadeScrollbars="false"
+        app:layout_constraintTop_toBottomOf="@id/layoutSubHeader"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/putihtua"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

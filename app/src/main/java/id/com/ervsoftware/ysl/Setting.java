@@ -1,7 +1,9 @@
 package id.com.ervsoftware.ysl;
 
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -33,10 +35,10 @@ public class Setting {
 
 
     //shared preference
-    public static final String SP_TOKEN = "user_token";
-    public static final String SP_USER = "user_username";
-    public static final String SP_EMAIL = "user_email";
-    public static final String SP_NO_HP = "user_email";
+    public static String SP_TOKEN = "user_token";
+    public static String SP_USER = "user_username";
+    public static String SP_EMAIL = "user_email";
+    public static String SP_NO_HP = "user_email";
 
     //Parameter
     public static String SELECTED_NAME = "";
@@ -92,4 +94,25 @@ public class Setting {
 
         return pemisahRibuan.format(value);
     }
+
+    //Date Formatter
+//    public static String dateFormatter(String date){
+//        String result = null;
+//        DateFormat inFormat = new SimpleDateFormat("dd-MM-yyyy");
+//        DateFormat outFormat = new SimpleDateFormat("dd MMM yyyy");
+//        try {
+//            Date dateFormat = inFormat.parse(date);
+//            result = outFormat.format(dateFormat);
+//        } catch (ParseException e) {
+//            e.printStackTrace();
+//        }
+//        return result;
+//    }
+
+    //Jatuh Tempo
+    public static String jtUrl = "";
+    public static String jtParam = "";
+    public static String jtCode = "";
+    public static String jtName = "";
+    public static Boolean jtChecked = false;
 }

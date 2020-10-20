@@ -109,10 +109,11 @@ public class PiutangActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         if (which == 0){
                             Intent jatuhTempo = new Intent(PiutangActivity.this, JatuhTempoActivity.class);
-                            String code = piutang.get(position).getID();
-                            jatuhTempo.putExtra("url", Setting.API_Jatuh_Tempo_Piutang);
-                            jatuhTempo.putExtra("param", "CustCode=");
-                            jatuhTempo.putExtra("code", code);
+                            Setting.jtUrl = Setting.API_Jatuh_Tempo_Piutang;
+                            Setting.jtParam = "&CustCode=";
+                            Setting.jtCode = piutang.get(position).getID();
+                            Setting.jtName = piutang.get(position).getName();
+
                             startActivity(jatuhTempo);
                         }
                     }
