@@ -96,18 +96,18 @@ public class Setting {
     }
 
     //Date Formatter
-//    public static String dateFormatter(String date){
-//        String result = null;
-//        DateFormat inFormat = new SimpleDateFormat("dd-MM-yyyy");
-//        DateFormat outFormat = new SimpleDateFormat("dd MMM yyyy");
-//        try {
-//            Date dateFormat = inFormat.parse(date);
-//            result = outFormat.format(dateFormat);
-//        } catch (ParseException e) {
-//            e.printStackTrace();
-//        }
-//        return result;
-//    }
+    public static String dateFormatter(String date){
+        String result = null;
+        DateFormat inFormat = new SimpleDateFormat("dd-MM-yyyy");
+        DateFormat outFormat = new SimpleDateFormat("dd MMM yyyy");
+        try {
+            Date dateFormat = inFormat.parse(date);
+            result = outFormat.format(dateFormat);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return outFormat.format(date);
+    }
 
     //Jatuh Tempo
     public static String jtUrl = "";

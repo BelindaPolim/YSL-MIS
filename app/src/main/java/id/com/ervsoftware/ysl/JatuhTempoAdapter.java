@@ -76,7 +76,7 @@ public class JatuhTempoAdapter extends ArrayAdapter {
         viewHolder.nomor.setText(data.getNomor());
 
         viewHolder.tanggal.setText(data.getTanggal());
-        viewHolder.jatuhTempo.setText(data.getJatuhTempo());
+        viewHolder.jatuhTempo.setText(String.valueOf(data.getJmlHari()));
         viewHolder.nilai.setText(data.getNilai());
 
         return row;

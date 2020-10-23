@@ -106,10 +106,11 @@ public class HutangActivity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         if (which == 0){
                             Intent jatuhTempo = new Intent(HutangActivity.this, JatuhTempoActivity.class);
-                            String code = hutang.get(position).getID();
-                            jatuhTempo.putExtra("url", Setting.API_Jatuh_Tempo_Piutang);
-                            jatuhTempo.putExtra("param", "&SuppCode=");
-                            jatuhTempo.putExtra("code", code);
+                            Setting.jtUrl = Setting.API_Jatuh_Tempo_Piutang;
+                            Setting.jtParam = "&SuppCode=";
+                            Setting.jtCode = hutang.get(position).getID();
+                            Setting.jtName = hutang.get(position).getName();
+
                             startActivity(jatuhTempo);
                         }
                     }

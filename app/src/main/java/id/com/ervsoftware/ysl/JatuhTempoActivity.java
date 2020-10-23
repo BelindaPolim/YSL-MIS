@@ -1,6 +1,7 @@
 package id.com.ervsoftware.ysl;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -31,10 +32,15 @@ public class JatuhTempoActivity extends AppCompatActivity {
     private static final String TAG = "Jatuh Tempo";
 
     ImageView imgBack, imgTime, imgRefresh, imgSearch;
-    TextView tvJudul, tvNama;
+    TextView tvJudul, tvNama, tvNilai;
+    TextView tvJumlahInv, tvTotalNilai;
     EditText etSetHari, etSearch;
-    CheckBox chkJatuhTempo;
-    Button btnUpdate;
+    SwitchCompat chkJatuhTempo;
+
+    long total = 0;
+    int jml = 0;
+
+//    Button btnUpdate;
     ListView lv;
     private ProgressDialog prog;
     String apiUrl;
@@ -67,29 +73,35 @@ public class JatuhTempoActivity extends AppCompatActivity {
             }
         });
 
-        btnUpdate = findViewById(R.id.btnUpdate);
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Setting.SET_HARI = Integer.parseInt(etSetHari.getText().toString());
-                refreshData();
-            }
-        });
+//        btnUpdate = findViewById(R.id.btnUpdate);
+//        btnUpdate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Setting.SET_HARI = Integer.parseInt(etSetHari.getText().toString());
+//                refreshData();
+//            }
+//        });
 
         String url = Setting.jtUrl;
         String param = Setting.jtParam;
         String code = Setting.jtCode;
         String name = Setting.jtName;
 
+        tvJumlahInv = findViewById(R.id.jmlInv);
+        tvTotalNilai = findViewById(R.id.totalNilai);
+
         tvJudul = findViewById(R.id.judul);
+        tvNilai = findViewById(R.id.nilaiP);
         String ifCust = "Nama Customer : ";
         String ifSupp = "Nama Supplier : ";
 
         if (param.contains("Cust")){
             tvJudul.setText(ifCust);
+            tvNilai.setText("Nilai Piutang");
         }
         else {
             tvJudul.setText(ifSupp);
+            tvNilai.setText("Nilai Hutang");
         }
         tvNama = findViewById(R.id.nama);
         tvNama.setText(name);
@@ -115,13 +127,14 @@ public class JatuhTempoActivity extends AppCompatActivity {
 //            }
 //        });
 
-//        imgRefresh = findViewById(R.id.imgRefresh);
-//        imgRefresh.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                refreshData();
-//            }
-//        });
+        imgRefresh = findViewById(R.id.imgRefresh);
+        imgRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Setting.SET_HARI = Integer.parseInt(etSetHari.getText().toString());
+                refreshData();
+            }
+        });
 
         lv = findViewById(R.id.listView);
         lv.setTextFilterEnabled(true);
@@ -134,6 +147,8 @@ public class JatuhTempoActivity extends AppCompatActivity {
                     jatuhTempo.clear();
                     String cari = etSearch.getText().toString().trim();
                     new JatuhTempoActivity.GetContacts().execute(cari);
+                    total = 0;
+                    jml = 0;
                     return true;
                 }
                 return false;
@@ -150,7 +165,8 @@ public class JatuhTempoActivity extends AppCompatActivity {
                 jatuhTempo.clear();
                 String cari = etSearch.getText().toString().trim();
                 new JatuhTempoActivity.GetContacts().execute(cari);
-
+                total = 0;
+                jml = 0;
             }
         });
     }
@@ -223,16 +239,27 @@ public class JatuhTempoActivity extends AppCompatActivity {
                         String tanggal = c.getString("TglFkt");
                         String jatuhtempo = c.getString("TglJatuhTempo");
                         int jmlHari = c.getInt("JumlahHari");
-                        int nominal = c.getInt("NilaiPIutang");
+                        int nominal = 0;
+
+                        if (Setting.jtParam.contains("Cust")){
+                            nominal = c.getInt("NilaiPIutang");
+                        }
+                        if (Setting.jtParam.contains("Supp")){
+                            nominal = c.getInt("NilaiHutang");
+                        }
 
                         String nilai = Setting.pemisahRibuan(nominal);
 
                         String search = strings[0];
-                        if(search.isEmpty()){
+                        if(search.isEmpty() && jmlHari <= Setting.SET_HARI){
                             jatuhTempo.add(new JatuhTempoModel(nomor, tanggal, jatuhtempo, jmlHari, Setting.pemisahRibuan(nominal).substring(0, nilai.length()-3)));
+                            total += nominal;
+                            jml += 1;
                         }
-                        else if(nomor.contains(search)) {
+                        else if(nomor.contains(search.toUpperCase()) && jmlHari <= Setting.SET_HARI) {
                             jatuhTempo.add(new JatuhTempoModel(nomor, tanggal, jatuhtempo, jmlHari, Setting.pemisahRibuan(nominal).substring(0, nilai.length()-3)));
+                            total += nominal;
+                            jml += 1;
                         }
                     }
 
@@ -275,6 +302,8 @@ public class JatuhTempoActivity extends AppCompatActivity {
             dismissProgressDialog();
 
             lv.setAdapter(new JatuhTempoAdapter(JatuhTempoActivity.this, R.layout.list_jatuh_tempo, jatuhTempo));
+            tvJumlahInv.setText(String.valueOf(jml));
+            tvTotalNilai.setText(Setting.pemisahRibuan(total).substring(0, Setting.pemisahRibuan(total).length()-3));
         }
     }
 
