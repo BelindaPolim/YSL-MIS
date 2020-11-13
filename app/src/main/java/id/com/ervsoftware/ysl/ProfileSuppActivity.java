@@ -108,51 +108,8 @@ public class ProfileSuppActivity extends AppCompatActivity {
                 new ProfileSuppActivity.GetContacts().execute(cari);
             }
         });
-
-//        prepareListData();
-//        listAdapter = new ExpandableListAdapter(this, listProfileNames, listProfileDetails);
-//        expListView.setAdapter(listAdapter);
-
     }
 
-//    private void prepareListData() {
-//        listProfileNames = new ArrayList<String>();
-//        listProfileDetails = new HashMap<String, List<String>>();
-//
-//        // Adding header data
-//        listProfileNames.add("Top 250");
-//        listProfileNames.add("Now Showing");
-//        listProfileNames.add("Coming Soon..");
-//
-//        // Adding child data
-//        List<String> top250 = new ArrayList<String>();
-//        top250.add("The Shawshank Redemption");
-//        top250.add("The Godfather");
-//        top250.add("The Godfather: Part II");
-//        top250.add("Pulp Fiction");
-//        top250.add("The Good, the Bad and the Ugly");
-//        top250.add("The Dark Knight");
-//        top250.add("12 Angry Men");
-//
-//        List<String> nowShowing = new ArrayList<String>();
-//        nowShowing.add("The Conjuring");
-//        nowShowing.add("Despicable Me 2");
-//        nowShowing.add("Turbo");
-//        nowShowing.add("Grown Ups 2");
-//        nowShowing.add("Red 2");
-//        nowShowing.add("The Wolverine");
-//
-//        List<String> comingSoon = new ArrayList<String>();
-//        comingSoon.add("2 Guns");
-//        comingSoon.add("The Smurfs 2");
-//        comingSoon.add("The Spectacular Now");
-//        comingSoon.add("The Canyons");
-//        comingSoon.add("Europa Report");
-//
-//        listProfileDetails.put(listProfileNames.get(0), top250); // Header, Child data
-//        listProfileDetails.put(listProfileNames.get(1), nowShowing);
-//        listProfileDetails.put(listProfileNames.get(2), comingSoon);
-//    }
 
     private void refreshData() {
         startActivity(new Intent(getApplicationContext(), ProfileSuppActivity.class));
@@ -192,7 +149,7 @@ public class ProfileSuppActivity extends AppCompatActivity {
         protected Void doInBackground(String... strings) {
             HttpHandler sh = new HttpHandler();
 
-            String url = Setting.API_Hutang_Dagang + "?LoginUserId=" + Setting.SP_USER;
+            String url = Setting.API_Profile_Supplier + "?LoginUserId=" + Setting.SP_USER;
             String jsonStr = sh.makeServiceCall(url);
 
             if(jsonStr == null) Log.e(TAG, "JSON null");
