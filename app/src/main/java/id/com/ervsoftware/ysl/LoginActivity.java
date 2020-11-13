@@ -46,6 +46,8 @@ import static id.com.ervsoftware.ysl.Setting.SP_TOKEN;
 import static id.com.ervsoftware.ysl.Setting.SP_USER;
 
 public class LoginActivity extends AppCompatActivity {
+    private String TAG = LoginActivity.class.getSimpleName();
+
     public final static int MY_PERMISSIONS_REQUEST_READ_PHONE_STATE = 0;
     Context c;
 
@@ -179,6 +181,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void prosesLogin(View view) {
         username = etUserId.getText().toString().trim();
+        Log.d(TAG, "prosesLogin: username" + username);
         password = etPassword.getText().toString().trim();
 
         if (username.length() == 0) {
@@ -258,7 +261,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onResponse(PLogin r) {
                         pd.dismiss();
                         if(r.getStatus().equals("ok")){
-                            Prefs.putString(SP_USER, username);
+                            Prefs.putString("SP_USER", username);
+                            Log.d(TAG, "onResponse: SPUSER " + SP_USER);
                             Prefs.putString(SP_TOKEN, r.getToken());
                             startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
                             finish();
